@@ -1,0 +1,31 @@
+<div class="row m-3">
+  <h2><%= @list.name %></h2>
+
+  <div>
+      <h3>Movies in this list</h3>
+    <ul>
+      <% @movies.each do |movie| %>
+        <li>
+          <h4><%= movie.title %></h4>
+          <p><%= movie.overview %></p>
+          <p><%= movie.rating %>/10</p>
+          <p><%= movie.poster_url %></p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div>
+    <h4>Other movies:</h4>
+    <div class="d-flex align-content-around flex-wrap bd-highlight">
+      <% @movies_all.each do |movie| %>
+        <div class="card m-3" style="width: 18rem;">
+          <div class="card-body m-3">
+            <h5 class="card-title"><%= movie.title %></h5>
+            <h6 class="card-subtitle mb-2 text-muted">rating: <%= movie.rating %>/10</h6>
+            <a href="lists/<%= @list.id %>" class="btn btn-outline-primary">Add to <%= @list.name %> list</a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

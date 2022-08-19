@@ -1,0 +1,21 @@
+<div class="m-3">
+  <h1>All my lists</h1>
+  <div class="d-flex align-content-around flex-wrap bd-highlight">
+    <% @lists.each do |list| %>
+      <div class="card m-3" style="width: 18rem;">
+        <div class="card-body m-3">
+          <h5 class="card-title"><%= list.name %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><em>includes the following movies:</em></h6>
+          <p class="card-text">
+            <ul>
+              <% @movies.each do |movie| %>
+                <li><%= movie.title %></li>
+              <% end %>
+            </ul>
+          </p>
+          <a href="lists/<%= list.id %>" class="btn btn-outline-primary">view list details</a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
