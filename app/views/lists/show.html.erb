@@ -10,7 +10,11 @@
           <p><%= movie.overview %></p>
           <p><%= movie.rating %>/10</p>
           <p><%= movie.poster_url %></p>
-          <p><%= @bookmarks.movie.comment %></p>
+          <% movie.bookmarks.each do |bookmark|%>
+            <ul>
+              <li><%= bookmark.comment %></li>
+            </ul>
+          <% end %>
         </li>
       <% end %>
     </ul>

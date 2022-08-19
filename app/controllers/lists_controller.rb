@@ -9,7 +9,6 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     @movies = @list.movies
     @movies_all = Movie.all
-    @bookmarks = @list.bookmarks
   end
 
   def new
