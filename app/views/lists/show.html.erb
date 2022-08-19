@@ -24,17 +24,20 @@
       <h3>Movies in this list</h3>
     <ul>
       <% @movies.each do |movie| %>
-        <li>
+        <div class="border border-dark rounded m-3 p-4" style="width: 40rem;">
           <h4><%= movie.title %></h4>
           <p><%= movie.overview %></p>
           <p><%= movie.rating %>/10</p>
           <p><%= movie.poster_url %></p>
-          <% movie.bookmarks.each do |bookmark|%>
-            <ul>
-              <li><%= bookmark.comment %></li>
-            </ul>
-          <% end %>
-        </li>
+          <div class="p-3 mb-2 bg-light text-dark" style="width: 30rem;">
+            <h5>People who saw this movie talk about it:</h5>
+            <% movie.bookmarks.each do |bookmark|%>
+              <ul>
+                <li><%= bookmark.comment %></li>
+              </ul>
+            <% end %>
+          </div>
+        </div>
       <% end %>
     </ul>
   </div>
@@ -46,7 +49,7 @@
           <div class="card-body m-3">
             <h5 class="card-title"><%= movie.title %></h5>
             <h6 class="card-subtitle mb-2 text-muted">rating: <%= movie.rating %>/10</h6>
-            <a href="lists/<%= @list.id %>" class="btn btn-outline-primary">Add to <%= @list.name %> list</a>
+            <a href="/lists/<%= @list.id %>/bookmarks/new" class="btn btn-outline-primary">Add to <%= @list.name %> list</a>
           </div>
         </div>
       <% end %>
