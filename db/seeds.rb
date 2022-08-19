@@ -13,27 +13,67 @@ Movie.destroy_all
 
 puts 'Creating 10 fake movies ...'
 
-10.times do
-  movie = Movie.new(
+
+  movie1 = Movie.new(
     title: Faker::Movie.title,
     overview: Faker::Movie.quote,
     poster_url: Faker::Internet.url,
     rating:  rand(0.0...10.0).round(1)
   )
-  movie.save!
-end
+  movie1.save!
+
+  movie2 = Movie.new(
+    title: Faker::Movie.title,
+    overview: Faker::Movie.quote,
+    poster_url: Faker::Internet.url,
+    rating:  rand(0.0...10.0).round(1)
+  )
+  movie2.save!
+
+  movie3 = Movie.new(
+    title: Faker::Movie.title,
+    overview: Faker::Movie.quote,
+    poster_url: Faker::Internet.url,
+    rating:  rand(0.0...10.0).round(1)
+  )
+  movie3.save!
+
+
+  movie4 = Movie.new(
+    title: Faker::Movie.title,
+    overview: Faker::Movie.quote,
+    poster_url: Faker::Internet.url,
+    rating:  rand(0.0...10.0).round(1)
+  )
+  movie4.save!
+
+  movie5 = Movie.new(
+    title: Faker::Movie.title,
+    overview: Faker::Movie.quote,
+    poster_url: Faker::Internet.url,
+    rating:  rand(0.0...10.0).round(1)
+  )
+  movie5.save!
+
+  movie6 = Movie.new(
+    title: Faker::Movie.title,
+    overview: Faker::Movie.quote,
+    poster_url: Faker::Internet.url,
+    rating:  rand(0.0...10.0).round(1)
+  )
+  movie6.save!
 
 puts 'Creating fake lists ...'
-List.create(name: "Fiction")
-List.create(name:"Romance")
-List.create(name: "Action")
+list1 = List.create(name: "Fiction")
+list2 = List.create(name:"Romance")
+list3 = List.create(name: "Action")
 
 
 puts 'Finished movies and lists!'
 
 puts 'Creating fake bookmarks ...'
-Bookmark.create(:list_id=>15, :movie_id=>55, :comment=>"Pretty Good")
-Bookmark.create(:list_id=>15, :movie_id=>57, :comment=>"Excellent!")
+Bookmark.create(:list_id=> List.first.id, :movie_id=>Movie.last.id, :comment=>"Pretty Good")
+Bookmark.create(:list_id=>List.first.id, :movie_id=>Movie.first.id, :comment=>"Excellent!")
 
 puts "All done"
 
